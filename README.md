@@ -1,56 +1,51 @@
-# SIT323/SIT737 – Cloud Native Application Development
+# 🧮 Calculator App – SIT323 6.2C
 
-## 🧠 Task: Creating a Kubernetes Cluster for a Containerized Node.js Application
+This project is part of the SIT323 – Cloud Native Application Development unit at Deakin University. The application is a simple calculator built with Node.js and Docker, then deployed to a Kubernetes cluster.
 
-This project demonstrates how to containerize a Node.js application and deploy it to a Kubernetes cluster using Docker, kubectl, and Kubernetes YAML configuration files.
+## ⚙️ Technologies Used
 
+- **Node.js** – Backend runtime
+- **Express.js** – Web framework
+- **Docker** – Containerization
+- **Kubernetes** – Orchestration
+- **kubectl** – Command-line tool for Kubernetes
 
-## 📦 Technologies Used
+## 🧪 How to Run Locally
 
-- Node.js
-- Docker
-- Kubernetes
-- kubectl (Kubernetes CLI)
-- Git & GitHub
-- Visual Studio Code
+1. **Install dependencies:**
 
----
+```bash
+npm install
+```
+   
+2. Run the app:
+```bash
+node server.js
+```
+App will be available at http://localhost:3000.
 
-## 🚀 Project Setup and Instructions
-
-# 1️⃣ Create the Repository
-```git clone https://github.com/janudafdo/sit323-2025-prac6p.git```
-
-
-# 2️⃣ Build and Push Docker Image
-Ensure Docker is running on your system.
-
-```ruby
-docker build -t janudafernando/node-app:v1 .
-docker login
-docker push janudafernando/node-app:v1
+🐳 Docker Usage
+Build Docker Image
+```bash
+docker build -t calculator-app .
+```
+Run Docker Container
+```bash
+docker run -p 3000:3000 calculator-app
 ```
 
-
-# 3️⃣ Start Kubernetes Cluster
-```ruby
-minikube start
+☸️ Kubernetes Deployment
+Apply Kubernetes Configurations
+```bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
 ```
 
-
-# 4️⃣ Deploy Application to Kubernetes
-Apply Deployment and Service Files<br>
-```ruby
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-```
-
-
-# 5️⃣ Verify the Deployment
-```ruby
+Check Running Pods
+```bash
 kubectl get pods
-kubectl get services
 ```
 
-
+Access the App
+After running ```minikube service calculator-service```, a browser tab should open with your app.
 
